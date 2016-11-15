@@ -2,9 +2,11 @@ def add_numbers(a, b)
 	a + b
 end
 
+
 def subtract_numbers(a, b)
 	return a - b
 end
+
 
 def add_array_numbers(a)
 	sum = 0
@@ -12,11 +14,13 @@ def add_array_numbers(a)
 	sum
 end
 
+
 def subtract_array_numbers(a)
 	sum = a[0]
 	a.each {|i| sum -= i}
 	return sum
 end
+
 
 def add_array_numbers1(a)
 	a.reduce(0, :+)
@@ -26,6 +30,7 @@ def multiply_numbers(a, b)
 	a*b
 end
 
+
 def divide_numbers(a, b)
 	if b > 0
 		a/b
@@ -34,17 +39,21 @@ def divide_numbers(a, b)
 	end
 end
 
+
 def multiply_array_numbers(a)
 	a.reduce(1, :*)
 end
+
 
 def raise2power(a, b)
 	a ** b
 end
 
+
 def factorial(a)
     (1..a).inject(:*) || 1
 end
+
 
 def smooth_operator(a)
 	if a[:function] == 'add'
