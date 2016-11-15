@@ -56,6 +56,7 @@ end
 
 
 def smooth_operator(a)
+	raise ArgumentError unless a.is_a? Hash
 	if a[:function] == 'add'
 		add_array_numbers(a[:data])
 	elsif a[:function] == 'subtract'
@@ -72,7 +73,6 @@ def smooth_operator(a)
 		return "That function is not allowed"		
 	end
 end
-
 
 
 
