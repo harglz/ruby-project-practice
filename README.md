@@ -1,4 +1,4 @@
-#Person Project
+#Ruby Project Practise
 
 This is a readme file relating to the projects I worked on at the Sparta Global Academy.
 
