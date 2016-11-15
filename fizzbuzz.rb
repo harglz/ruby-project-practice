@@ -1,7 +1,13 @@
+#Short/Legible FizzBuzz
+
 a=1;b="Fizz";c="Buzz";200.times{p(a%15<1?b+c:(a%3<1?b:(a%5<1?c:a)));a+=1}
+
+#Shorter/Substringing FizzBuzz
 
 1.upto(200){|i|p"FizzBuzz#{i}"[i%3<1?0:i%5<1?4:8,i%15<1?8:4]}
 
+
+#Randomizer that outputs a slot machine net output (currently set to 50 repetitions)
 
 a = 0
 n = 50
@@ -12,6 +18,7 @@ end
 puts ''
 puts ((1-a)/n)-1
 
+#Long/prettier FizzBuzz
 
 a=1
 b='Fizz'
