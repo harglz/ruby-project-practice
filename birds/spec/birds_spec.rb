@@ -2,9 +2,9 @@ describe 'bird' do
 	it 'should be able to make a new bird' do
 		tit = Bird.new
 		expect(tit.get_bird_color).to eq nil
-		expect(tit.get_bird_tpye).to eq nil
+		expect(tit.get_bird_type).to eq nil
 		expect(tit.get_spot_date).to eq nil
-		expect(tit.get_can_fly).to eq false
+		expect(tit.get_can_fly).to eq nil
 		expect(tit.get_length).to eq 0.0
 	end
 
@@ -62,7 +62,7 @@ describe 'bird' do
 
 	it 'should be able to peck' do
 		tit = Bird.new
-		expect(tit.waddle).to eq "I'll bite your hand off!"
+		expect(tit.peck).to eq "I'll bite your hand off!"
 	end
 
 	it 'should be able to describe itself in full' do
@@ -75,15 +75,3 @@ describe 'bird' do
 		expect(tit.describe).to eq "I am a blue tit. I was spotted on 01/01/01. I can fly and I am 15 cm long."
 	end
 end
-
-
-
-
-
-
-
-
-
-
-
-
