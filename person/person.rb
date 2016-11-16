@@ -23,7 +23,7 @@ class Person
 		return "ZzzZzzZzzZzzZzz"
 	end
 
-	def say=(thing)
+	def say(thing)
 		puts thing
 	end
 

@@ -2,7 +2,7 @@ class Baby < Person
 
 	def initialize
 		#instance variables @ allow variables to be used anywhere within class.
-		@height = 0.0
+		super('none')
 		@hair_color = 'none'
 		@smells = true
 	end
