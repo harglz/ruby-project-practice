@@ -1,12 +1,14 @@
 class Bird
+	attr_accessor :color, :type, :spot_date, :can_fly, :length
+
 	def initialize
 		@color = nil
 		@type = nil
-		@spotted = nil
+		@spot_date = nil
 		@can_fly = nil
 		@length = 0.0
 	end
-
+=begin
 	def get_bird_color
 		return @color
 	end
@@ -46,6 +48,7 @@ class Bird
 	def set_length(length)
 		@length = length
 	end
+=end
 
 	def chirp
 		return "Tweet Tweet"
@@ -69,10 +72,9 @@ class Bird
 
 	def describe
 		if @can_fly
-			return "I am a #{@color} #{@type}. I was spotted on #{@spotted}. I can fly and I am #{@length} cm long."
+			return "I am a #{@color} #{@type}. I was spotted on #{@spot_date}. I can fly and I am #{@length} cm long."
 		else
-			return "I am a #{@color} #{@type}. I was spotted on #{@spotted}. I cannot fly and I am #{@length} cm long."
+			return "I am a #{@color} #{@type}. I was spotted on #{@spot_date}. I cannot fly and I am #{@length} cm long."
 		end
 	end
-
 end
