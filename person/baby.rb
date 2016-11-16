@@ -3,7 +3,6 @@ class Baby < Person
 	def initialize
 		#instance variables @ allow variables to be used anywhere within class.
 		super('none')
-		@hair_color = 'none'
 		@smells = true
 	end
 
@@ -16,6 +15,20 @@ class Baby < Person
 	end
 
 	def dance
-		"waaaah"
+		build_cry
+	end
+
+	def cry
+		build_cry
+	end
+
+	def cry_lots
+		build_cry(3)
+	end
+
+	private
+	
+	def build_cry(n=1)
+		"waaaah " * n
 	end
 end
