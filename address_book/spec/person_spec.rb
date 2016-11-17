@@ -22,12 +22,12 @@ describe 'Person' do
 	
 	it 'should allow a person to add a list of phone numbers' do
 		person = Person.new('joe', 'bloggs', '1 Jan 1990')
-		expect(person.phone_numbers).to eq []
+		expect(person.phones).to eq []
 		person.add_phone "07712345678"
 		person.add_phone "02012345678"
-		expect(person.phone_numbers).to eq ["07712345678", "02012345678"]
+		expect(person.phones).to eq ["07712345678", "02012345678"]
 		person.remove_phone(0)
-		expect(person.phone_numbers).to eq ["02012345678"]
+		expect(person.phones).to eq ["02012345678"]
 	end
 
 	it 'should allow a person to have their details listed' do

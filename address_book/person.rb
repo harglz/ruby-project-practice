@@ -1,7 +1,7 @@
 require 'date'
 
 class Person
-
+  attr_reader :dob, :first_name, :surname, :emails, :phones
   def initialize(first_name, surname, dob = '0001/01/01')
     @first_name = first_name.capitalize
     @surname = surname.capitalize
@@ -10,25 +10,9 @@ class Person
     @phones = []
     end
 
-  def dob
-    return @dob
-  end
-
-  def first_name
-    @first_name
-  end
-
-  def surname
-    @surname
-  end
-
   def fullname
     @fullname = first_name + ' ' + surname
     @fullname
-  end
-
-  def emails
-    @emails
   end
 
   def add_email(email)
@@ -37,10 +21,6 @@ class Person
 
   def remove_email(index)
     @emails.delete_at(index)
-  end
-
-  def phone_numbers
-    @phones
   end
 
   def add_phone(phone)
