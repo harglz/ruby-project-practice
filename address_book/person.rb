@@ -4,8 +4,8 @@ class Person
   attr_accessor :dob, :first_name, :surname
   attr_reader :emails, :phones
   def initialize(first_name, surname, dob = '0001/01/01')
-    @first_name = first_name
-    @surname = surname
+    @first_name = first_name.capitalize
+    @surname = surname.capitalize
     @dob = Date.parse(dob)
     @emails = []
     @phones = []

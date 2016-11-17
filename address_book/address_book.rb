@@ -10,11 +10,15 @@ class AddressBook
     puts "Address Book"
     puts "------------"
     if @contents.length > 0
-      @contents.length.times { |time| puts "Entry #{time + 1}: #{@contents[time]}" }
+      @contents.each_with_index { |person, i| puts "Entry #{i + 1}: #{person.fullname}" }
     end
   end
 
   def add(entry)
-    @contents << entry.fullname
+    if entry.class == Person || entry.class == FamilyMember
+      @contents << entry
+    else
+      raise "You must provide a valid Person object"
+    end
   end
 end
