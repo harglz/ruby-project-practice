@@ -1,17 +1,18 @@
 require 'date'
 
 class Person
-  attr_reader :dob, :first_name, :surname, :emails, :phones
+  attr_accessor :dob, :first_name, :surname
+  attr_reader :emails, :phones
   def initialize(first_name, surname, dob = '0001/01/01')
-    @first_name = first_name.capitalize
-    @surname = surname.capitalize
+    @first_name = first_name
+    @surname = surname
     @dob = Date.parse(dob)
     @emails = []
     @phones = []
     end
 
   def fullname
-    @fullname = first_name + ' ' + surname
+    @fullname = first_name.capitalize + ' ' + surname.capitalize
     @fullname
   end
 
@@ -47,10 +48,10 @@ class Person
     puts "Date of Birth: #{@dob.strftime("%-d %b %Y")}"
     puts ""
     puts "Email Addresses:"
-    @emails.each {|email| puts "- " + email}
+    @emails.each {|e| puts "- #{e}"}
     puts ""
     puts "Phone Numbers:"
-    @phones.each {|phone| puts "- " + phone}
+    @phones.each {|p| puts "- #{p}"}
     puts ""
   end
 end
