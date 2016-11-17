@@ -1,0 +1,32 @@
+people:
+  - fname: Luke
+    surname: Hargraves
+    dob: 7 Aug 1995
+    emails:
+      - lhargraves95@gmail.com
+      - lhargraves@spartaglobal.co
+    phones:
+      - 07460666670
+  - fname: Tom
+    surname: Hogan
+    dob: 04 Mar 1992
+    emails:
+      - thogan@spartaglobal.co
+      - twhogan34@gmail.com
+    phones:
+      - 07786438120
+  - fname: Abraham
+    surname: Sriregar
+    dob: 3 Apr 1995
+    emails:
+      - asiregar@spartaglobal.co
+    phones:
+      - 07804244752
+  - fname: Aidan
+    surname: Tallon
+    dob: 29 Sep 1993
+    emails:
+      - aidantallon@hotmail.com
+      - atallon@spartaglobal.co
+    phones:
+      - 07530254943
