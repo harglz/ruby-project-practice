@@ -19,6 +19,6 @@ describe Baby do
 
 	it 'should cry instead of dancing' do
 		bobby = Baby.new
-		expect(bobby.dance).to eq "waaaah"
+		expect(bobby.dance).to eq "waaaah "
 	end
 end
