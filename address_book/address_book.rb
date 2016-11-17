@@ -7,10 +7,14 @@ class AddressBook
   end
 
   def list
-    @contents.each {|entry| puts entry.to_s }
+    puts "Address Book"
+    puts "------------"
+    if @contents.length > 0
+      @contents.length.times { |time| puts "Entry #{time + 1}: #{@contents[time]}" }
+    end
   end
 
   def add(entry)
-    @contents << entry
+    @contents << entry.fullname
   end
 end
