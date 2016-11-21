@@ -13,11 +13,6 @@ class Todo
     @@list << [@title, @due_date]
   end
 
-  def date(due_date)
-    date = Date.parse(due_date)
-    @due_date = date.strftime('%d %B %Y')
-  end
-
   def due_date=(due_date)
     date(due_date)
   end
@@ -62,5 +57,12 @@ class Todo
       end
     end
     print_list
+  end
+
+  private
+
+  def date(due_date)
+    date = Date.parse(due_date)
+    @due_date = date.strftime('%d %B %Y')
   end
 end
