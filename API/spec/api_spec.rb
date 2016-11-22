@@ -40,7 +40,7 @@ describe 'Lacedeamon API' do
     expect(HTTParty.get(url).to_a).to eq norm
   end
 
-  it 'should give a 404 error if not given a due (date)' do
+  it 'should give a 404 error if todo not given a due (date)' do
     norm = HTTParty.get(url).to_a
     a = HTTParty.post(url, body: BAD_DETAILS)
     id = a['id']
@@ -50,7 +50,7 @@ describe 'Lacedeamon API' do
     expect(HTTParty.get(url).to_a).to eq norm
   end
 
-  it 'should give a 404 error if not given a title' do
+  it 'should give a 404 error if todo not given a title' do
     norm = HTTParty.get(url).to_a
     a = HTTParty.post(url, body: WORSE_DETAILS)
     id = a['id']
@@ -60,7 +60,7 @@ describe 'Lacedeamon API' do
     expect(HTTParty.get(url).to_a).to eq norm
   end
 
-  it 'should allow all date formats' do
+  it 'should allow other ISO date formats' do
     norm = HTTParty.get(url).to_a
     a = HTTParty.post(url, body: BAD_DATE)
     id = a['id']
