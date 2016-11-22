@@ -59,4 +59,14 @@ describe 'Lacedeamon API' do
     HTTParty.delete(url("/#{id}"))
     expect(HTTParty.get(url).to_a).to eq norm
   end
+
+  it 'should allow all date formats' do
+    norm = HTTParty.get(url).to_a
+    a = HTTParty.post(url, body: BAD_DATE)
+    id = a['id']
+    post = HTTParty.get(url("/#{id}"))
+    expect(post.check('new', 200, 'OK')).to eq ['new', 200, 'OK']
+    HTTParty.delete(url("/#{id}"))
+    expect(HTTParty.get(url).to_a).to eq norm
+  end
 end

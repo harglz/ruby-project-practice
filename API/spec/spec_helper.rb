@@ -55,3 +55,7 @@ PATCH_CHANGES = {
   due: '2005-01-01'
 }
 
+BAD_DATE = {
+  title: 'new',
+  due: '01-01-2001' 
+}
