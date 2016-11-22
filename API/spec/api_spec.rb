@@ -9,15 +9,15 @@ describe 'Lacedeamon API' do
 
   after(:each) { wipe }
 
-  it 'should post and put as normal' do
+  it 'should post, put, patch and delete as normal' do
     post(body: DETAILS)
     expect(HTTParty.get(url).to_a[-1]['title']).to eq 'hello'
-    id = HTTParty.get(url.to_a[-1]['id'])
-    HTTParty.put(url('/' + id), body: PUT_CHANGES)
-    expect(HTTParty.get(url('/' + id))['title']).to eq 'changed'
-    HTTParty.patch(url('/' + id), body: PATCH_CHANGES)
-    expect(HTTParty.get(url('/' + id))['title']).to eq 'changed again?'
-    HTTParty.delete(url('/' + id))
+    id = HTTParty.get(url).to_a[-1]['id']
+    HTTParty.put(url("/#{id}"), body: PUT_CHANGES)
+    expect(HTTParty.get(url("/#{id}"))['title']).to eq 'changed'
+    HTTParty.patch(url("/#{id}"), body: PATCH_CHANGES)
+    expect(HTTParty.get(url("/#{id}"))['title']).to eq 'changed again?'
+    HTTParty.delete(url("/#{id}"))
     expect(HTTParty.get(url).to_a).to eq []
   end
 end
