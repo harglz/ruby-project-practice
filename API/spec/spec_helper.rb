@@ -22,10 +22,6 @@ def wipe
   end
 end
 
-def post(params)
-  HTTParty.post(url, body: DETAILS)
-end
-
 class HTTParty::Response < Object
   def check(title, code, message)
     arr = []
@@ -41,13 +37,21 @@ DETAILS = {
   due: '2010-09-09'
 }
 
+BAD_DETAILS = {
+  title: 'hello'
+}
+
+WORSE_DETAILS = {
+  due: '2010-09-09'
+}
+
 PUT_CHANGES = {
   title: 'changed',
   due: '2005-01-01'
 }
 
 PATCH_CHANGES = {
-  title: 'my arse',
+  title: 'new',
   due: '2005-01-01'
 }
 

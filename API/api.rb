@@ -1,4 +1,5 @@
 #Authors: Luke Hargraves, Tom Hogan, and Ben Allen
+=begin
 require 'HTTParty'
 
 #todos_url = url + id_no
@@ -17,5 +18,7 @@ def get_request(url = 'http://lacedeamon.spartaglobal.com/todos')
   return get_result
 end
 
-def delete()
+def delete(id, url = 'http://lacedeamon.spartaglobal.com/todos')
+  HTTParty.delete()
 end
+=end
