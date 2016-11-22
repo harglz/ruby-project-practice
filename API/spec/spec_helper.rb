@@ -1,7 +1,6 @@
 require 'rspec'
 require 'HTTParty'
 #require 'pry'
-#require 'http://lacedeamon.spartaglobal.com/todos'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -19,12 +18,22 @@ end
 def wipe
   HTTParty.get(url).each do |todo|
     HTTParty.delete(url('/') + todo['id'].to_s)
-    puts "wiping todo with name #{todo['title']}"
+    puts "wiping #{todo['title']}"
   end
 end
 
 def post(params)
   HTTParty.post(url, body: DETAILS)
+end
+
+class HTTParty::Response < Object
+  def check(title, code, message)
+    arr = []
+    arr << self['title']
+    arr << self.code
+    arr << self.message
+    return arr
+  end
 end
 
 DETAILS = {
@@ -38,7 +47,7 @@ PUT_CHANGES = {
 }
 
 PATCH_CHANGES = {
-  title: 'changed again?',
+  title: 'my arse',
   due: '2005-01-01'
 }
 
