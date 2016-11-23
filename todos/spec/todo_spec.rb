@@ -2,7 +2,7 @@ require './todo.rb'
 
 describe 'Todos app' do
 
-  before(:each) { Todo.class_variable_set :@@list, [] }
+  after(:each) { Todo.class_variable_set :@@list, [] }
 
   it 'should initialise' do
     todo = Todo.new('Remember the Milk', '18 November 2016')
@@ -60,5 +60,26 @@ describe 'Todos app' do
     expect(todo.title).to eq 'Test something'
     todo.title = 'New todo'
     expect(todo.title).to eq 'New todo'
+  end
+
+  it 'should synchronize with an API' do
+    #Setup
+    todo1 = Todo.new 'Sync Test 1', '18 November 2016'
+    todo2 = Todo.new 'Sync Test 2', '19 November 2016'
+    todo3 = Todo.new 'Sync Test 3', '20 November 2016'
+    #Check
+    expect(Todo.all).to eq [['Sync Test 1', '18 November 2016'],['Sync Test 2', '19 November 2016'],['Sync Test 3', '20 November 2016']]
+    #Push data to API
+    Todo.sync
+    #Clear local
+    @@list = []
+    expect(Todo.all).to eq []
+    #Add a todo to local
+    todo4 = Todo.new 'Sync Test 4', '21 November 2016'
+    #Check
+    expect(Todo.all).to eq [['Sync Test 4', '21 November 2016']]
+    #Sync to pull down stored todos
+    Todo.sync
+    expect(Todo.all).to eq [['Sync Test 1', '18 November 2016'],['Sync Test 2', '19 November 2016'],['Sync Test 3', '20 November 2016'], ['Sync Test 4', '21 November 2016']]
   end
 end

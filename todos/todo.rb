@@ -5,6 +5,7 @@ class Todo
   attr_reader :due_date
 
   @@list = []
+  @@API = []
 
   def initialize(title, due_date = Date.today.strftime('%d %B %Y'))
     @title = title
@@ -57,6 +58,20 @@ class Todo
       end
     end
     print_list
+  end
+
+  def self.sync
+    @@API.each do |todo|
+      if self.find(exactly: todo[0])
+        @@list << todo 
+      end
+    @@API = []
+    end
+    @@list.each do |todo|
+    @@API << todo
+    end
+    @@API.sort!
+    @@list.sort!
   end
 
   private

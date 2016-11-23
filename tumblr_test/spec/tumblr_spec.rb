@@ -15,10 +15,15 @@ describe 'Tumblr' do
       @browser.button(id: 'login-signin').click
       @browser.text_field(id: 'login-passwd').set "HashedKey123\n"
     end
-    sleep 5
+    sleep 3
     expect(@browser.url).to eq "https://www.tumblr.com/dashboard"
     expect(logged_in?).to eq true
   end
 
-
+  it 'should login using the login method' do
+    login
+    sleep 3
+    expect(@browser.url).to eq "https://www.tumblr.com/dashboard"
+    expect(logged_in?).to eq true
+  end
 end
